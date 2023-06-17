@@ -1,4 +1,6 @@
 import 'package:crud/View/home.dart';
+import 'package:crud/auth/login.dart';
+import 'package:crud/auth/register.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'CRUD Application',
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: LoginScreen(),
     );
   }
 }
