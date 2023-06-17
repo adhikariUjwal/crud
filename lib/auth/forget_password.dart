@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 
-class ForgetPassword extends StatefulWidget {
-  const ForgetPassword({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<ForgetPassword> createState() => _ForgetPasswordState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _ForgetPasswordState extends State<ForgetPassword> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+        child: Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Text('Reset Your password here!'),
+        ),
+      ),
+    ));
   }
 }

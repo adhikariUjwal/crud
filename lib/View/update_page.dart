@@ -11,6 +11,7 @@ class UpdatePage extends StatefulWidget {
 
 class _UpdatePageState extends State<UpdatePage> {
   TextEditingController updateFullNameController = TextEditingController();
+  @override
   void dispose() {
     updateFullNameController.dispose();
   }

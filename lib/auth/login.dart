@@ -1,3 +1,4 @@
+import 'package:crud/auth/forget_password.dart';
 import 'package:crud/auth/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
         body: SingleChildScrollView(
             child: Stack(children: [
           Container(
-            padding: const EdgeInsets.only(top: 50),
+            padding: const EdgeInsets.only(top: 80),
             child: Center(
               child: Image.asset(
                 'assets/backgrounds/clouds.png',
@@ -97,7 +98,15 @@ class _LoginFormState extends State<LoginForm> {
             const SizedBox(height: 10),
             Container(
                 alignment: Alignment.centerRight,
-                child: const Text('Forgot Password?')),
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ForgotPasswordScreen()),
+                      );
+                    },
+                    child: const Text('Forgot Password?'))),
             const SizedBox(height: 25),
             SizedBox(
               height: 45,
@@ -178,7 +187,7 @@ class _LoginFormState extends State<LoginForm> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/logos/google.webp',
+                    Image.asset('assets/logos/facebook.png',
                         width: 20, height: 20),
                     const SizedBox(width: 10),
                     const Text('Sign in with Facebook'),

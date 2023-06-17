@@ -1,3 +1,4 @@
+import 'package:crud/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -49,8 +50,10 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
-  TextEditingController usernameController = TextEditingController();
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,17 +62,32 @@ class _RegisterFormState extends State<RegisterForm> {
         padding: const EdgeInsets.all(30),
         child: Column(
           children: [
-            const SizedBox(height: 100),
+            const SizedBox(height: 80),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Image.asset('assets/logos/logo.png'),
             ),
             TextField(
-              controller: usernameController,
+              controller: fullNameController,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
-                hintText: 'Username',
+                hintText: 'Full Name',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              ),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: emailController,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: 'Email',
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(25),
@@ -94,9 +112,20 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
             ),
             const SizedBox(height: 10),
-            Container(
-                alignment: Alignment.centerRight,
-                child: const Text('Forgot Password?')),
+            TextField(
+              controller: confirmPasswordController,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: 'Confirm Password',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              ),
+            ),
             const SizedBox(height: 25),
             SizedBox(
               height: 45,
@@ -118,17 +147,17 @@ class _RegisterFormState extends State<RegisterForm> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 40),
-                  child: Text("Don't have an account? "),
+                  child: Text("Already have an account? "),
                 ),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RegisterScreen()),
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
                     );
                   },
                   child: Text(
-                    'Create one',
+                    'Sign In',
                     style: TextStyle(color: Color.fromRGBO(255, 86, 75, 1)),
                   ),
                 )
@@ -176,7 +205,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/logos/google.webp',
+                    Image.asset('assets/logos/facebook.png',
                         width: 20, height: 20),
                     SizedBox(width: 10),
                     Text('Sign in with Facebook'),
